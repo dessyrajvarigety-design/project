@@ -1,0 +1,28 @@
+# Messenger Code
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Messenger {
+    private Map<String, String> messages;
+
+    public Messenger() {
+        messages = new HashMap<>();
+    }
+
+    public void sendMessage(String recipient, String message) {
+        messages.put(recipient, message);
+        System.out.println("Message sent to " + recipient);
+    }
+
+    public String receiveMessage(String recipient) {
+        return messages.getOrDefault(recipient, "No new messages.");
+    }
+
+    public static void main(String[] args) {
+        Messenger messenger = new Messenger();
+        messenger.sendMessage("Alice", "Hello, Alice!");
+        System.out.println(messenger.receiveMessage("Alice"));
+    }
+}
+
